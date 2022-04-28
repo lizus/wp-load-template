@@ -21,3 +21,9 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+# composer.phar
+/vendor/
+
+# ignore node dependency directories
+node_modules/

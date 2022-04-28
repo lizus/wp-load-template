@@ -1,0 +1,19 @@
+{
+    "name": "lizus/wp-load-template",
+    "description": "wp get_template_part wrap class",
+    "type": "library",
+    "require": {
+        "php": ">=7.0"
+    },
+    "license": "GPL-2.0-or-later",
+    "authors": [{
+        "name": "lizus",
+        "email": "lizus.com@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "LizusWPLoad\\": "src/class/"
+        }
+    }
+}
