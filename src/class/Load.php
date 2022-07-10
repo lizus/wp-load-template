@@ -56,5 +56,18 @@ class Load {
             $data=(isset($args[1]) && is_array($args[1])) ? $args[1] : [];
             return $this->load_template($path,$name,$data);
         }
+        /**
+         * 使用getHeader($name,$data)的方法的时候，获取模板的内容可以存储在变量中
+         */
+        if(\preg_match('/get([A-Z0-9][_a-zA-Z0-9]*)/',$name,$m)) {
+            \ob_start();
+            $path=\lcfirst($m[1]);
+            $name=$args[0] ?? '';
+            $data=(isset($args[1]) && is_array($args[1])) ? $args[1] : [];
+            $this->load_template($path,$name,$data);
+            $rs=\ob_get_contents();
+            \ob_end_clean();
+            return $rs;
+        }
     }
 }
