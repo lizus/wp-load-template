@@ -32,11 +32,8 @@ class Load
     protected function load_template($path, $name, $data = []): bool
     {
         if (!empty($data) && is_array($data)) self::setData($data);
-        if (file_exists(get_stylesheet_directory() . '/' . $this->path_root . $path . '/' . $path . '-' . $name . '.php')) {
-            \get_template_part($this->path_root . $path . '/' . $path, $name);
-            return true;
-        }
-        return false;
+        $rs = \get_template_part($this->path_root . $path . '/' . $path, $name);
+        return $rs === false ? false : true;
     }
 
     /**
